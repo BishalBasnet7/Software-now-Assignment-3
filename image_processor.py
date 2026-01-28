@@ -38,16 +38,6 @@ class ImageProcessor:
         return gray_bgr
     
     def blur(self, image, intensity=5):
-        """
-        Apply Gaussian blur to the image.
-        
-        Args:
-            image: Input image
-            intensity: Blur kernel size (must be odd)
-            
-        Returns:
-            Blurred image
-        """
         # Ensure kernel size is odd and positive
         kernel_size = max(1, intensity)
         if kernel_size % 2 == 0:
