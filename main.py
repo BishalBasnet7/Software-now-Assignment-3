@@ -1,13 +1,3 @@
-"""
-HIT137 Group Assignment 3
-Image Processing Desktop Application
-Following Week 8 Tutorial Style
-
-Group Members:
-- [Your Name] - [Student ID]
-- [Name 2] - [Student ID]
-- [Name 3] - [Student ID]
-"""
 
 from tkinter import *
 from tkinter import filedialog, messagebox
@@ -19,11 +9,7 @@ from history_manager import HistoryManager
 
 
 class ImageProcessingApp:
-    """
-    Main application class - demonstrates OOP principles
-    Encapsulation, Constructor, Methods, Class Interaction
-    """
-    
+    "Testing"
     def __init__(self, master):
         """Constructor - initializes the application"""
         self.master = master
