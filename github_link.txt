@@ -1,0 +1,12 @@
+GitHub Repository Link:
+[Please replace this with your actual GitHub repository URL]
+
+Example:
+https://github.com/yourusername/hit137-assignment3
+
+Instructions:
+1. Create a new public repository on GitHub
+2. Add all group members as collaborators
+3. Upload all project files
+4. Replace the text above with your actual repository URL
+5. Include this file in your submission
