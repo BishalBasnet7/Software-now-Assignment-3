@@ -57,7 +57,7 @@ class ImageProcessingApp:
     def createToolbar(self):
         toolbar = Frame(self.master, bg="lightgray", bd=1, relief=RAISED)
         
-        # Toolbar buttons - packed LEFT like in PDF
+        
         Button(toolbar, text="Open", command=self.openImage).pack(side=LEFT, padx=2, pady=2)
         Button(toolbar, text="Save", command=self.saveImage).pack(side=LEFT, padx=2, pady=2)
         Button(toolbar, text="Undo", command=self.undo).pack(side=LEFT, padx=2, pady=2)
