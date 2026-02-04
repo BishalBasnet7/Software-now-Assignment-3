@@ -1,18 +1,14 @@
 import numpy as np
 
 class HistoryManager:
-    """
-    Class responsible for managing the history of image states.
-    Enables undo and redo functionality.
-    """
+
+    #Class responsible for managing the history of image states.
+    #Enables undo and redo functionality.
+
 
     def __init__(self, max_history=20):
-        """
-        Constructor: Initialize the history manager.
         
-        Args:
-            max_history: Maximum number of states to keep in history.
-        """
+       # Initialize the HistoryManager.
         self._history = []  # List to store image states
         self._current_index = -1  # Current index in the history
         self._max_history = max_history  # Maximum number of states allowed
