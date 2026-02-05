@@ -7,7 +7,7 @@
  **[Bhuwan Giri]** 
 ---
 
-## Project Description
+
 Desktop image processing application built with Python Tkinter and OpenCV, following Week 8 tutorial programming style.
 
 ---
