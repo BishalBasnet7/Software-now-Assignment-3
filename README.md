@@ -1,16 +1,32 @@
 # HIT137 Assignment 3 - Image Processing Application
 
 ## Group Members
-- **[Nishan Hamal]**
-- **[Bishal Basnet]** - 
-- **[aryan Thapa]** 
- **[Bhuwan Giri]** 
+- **[Student Name 1]** - [Student ID]
+- **[Student Name 2]** - [Student ID]  
+- **[Student Name 3]** - [Student ID]
+
 ---
 
+## Project Description
+Desktop image processing application built with Python Tkinter and OpenCV, following Week 8 tutorial programming style.
 
+---
 
+## Installation
 
+### Step 1: Install Python Packages
+```bash
+pip3 install opencv-python numpy Pillow
+```
 
+### Step 2: Run the Application
+```bash
+python3 main.py
+```
+
+---
+
+## Features
 
 ### Image Processing (8 Required Features)
 1. **Grayscale Conversion** - Convert to black and white
@@ -128,6 +144,7 @@ project/
 
 ---
 
+## Code Structure (Week 8 Style)
 
 ### Main Program
 ```python
