@@ -1,9 +1,3 @@
-"""
-Image Processing Application
-A user-friendly image editor built with Tkinter and OpenCV
-Author: Software Engineering Student
-Date: February 2026
-"""
 
 from tkinter import *
 from tkinter import filedialog, messagebox
@@ -15,18 +9,10 @@ from history_manager import HistoryManager
 
 
 class ImageProcessingApp:
-    """
-    Main application class for the Image Processing tool.
-    This creates a GUI where users can edit images with various filters and adjustments.
-    """
+
     
     def __init__(self, master):
-        """
-        Initialize the application and set up the GUI.
-        
-        Args:
-            master: The main Tkinter window
-        """
+
         # Set up the main window
         self.master = master
         self.master.title("Image Processing Application using OpenCV")
@@ -50,7 +36,7 @@ class ImageProcessingApp:
         self.createStatusBar()
         
     def createMenus(self):
-        """Create the menu bar at the top with File and Edit menus."""
+        #Create the menu bar at the top with File and Edit menus.
         # Main menu bar
         menu = Menu(self.master)
         self.master.config(menu=menu)
@@ -73,7 +59,7 @@ class ImageProcessingApp:
         editMenu.add_command(label="Reset to Original", command=self.resetImage)
         
     def createToolbar(self):
-        """Create the toolbar with quick-access buttons."""
+        #Create the toolbar with quick-access buttons.
         toolbar = Frame(self.master, bg="lightgray", bd=1, relief=RAISED)
         
         # Add buttons to the toolbar (they appear left to right)
@@ -87,7 +73,7 @@ class ImageProcessingApp:
         toolbar.pack(side=TOP, fill=X)
         
     def createWidgets(self):
-        """Create the main content area with controls and image display."""
+        #Create the main content area with controls and image display.
         # Main container that holds everything
         mainFrame = Frame(self.master)
         mainFrame.pack(fill=BOTH, expand=True)
@@ -99,12 +85,7 @@ class ImageProcessingApp:
         self.createImagePanel(mainFrame)
         
     def createControlPanel(self, parent):
-        """
-        Create the left panel with all image editing controls.
-        
-        Args:
-            parent: The frame that will contain this panel
-        """
+
         # Create a fixed-width panel on the left
         controlFrame = Frame(parent, width=280, bg="#e0e0e0", relief=RIDGE, bd=2)
         controlFrame.pack(side=LEFT, fill=Y, padx=5, pady=5)
@@ -196,12 +177,7 @@ class ImageProcessingApp:
         Button(resizeFrame, text="Apply", command=self.resizeImage).pack(side=LEFT, padx=2)
         
     def createImagePanel(self, parent):
-        """
-        Create the image display area on the right side.
-        
-        Args:
-            parent: The frame that will contain this panel
-        """
+
         # Create a white area for showing the image
         imageFrame = Frame(parent, bg="white", relief=SUNKEN, bd=2)
         imageFrame.pack(side=RIGHT, fill=BOTH, expand=True, padx=5, pady=5)
@@ -218,23 +194,17 @@ class ImageProcessingApp:
         )
         
     def createStatusBar(self):
-        """Create the status bar at the bottom that shows messages."""
+        #Create the status bar at the bottom that shows messages.
         self.statusBar = Label(self.master, text="Ready", bd=1, 
                               relief=SUNKEN, anchor=W)
         self.statusBar.pack(side=BOTTOM, fill=X)
         
     def updateStatus(self, message):
-        """
-        Update the status bar with a new message.
-        
-        Args:
-            message: The text to display in the status bar
-        """
         self.statusBar.config(text=message)
         self.master.update_idletasks()  # Make sure it shows up right away
         
     def openImage(self):
-        """Let the user choose and open an image file."""
+        #Let the user choose and open an image file.
         # Show a file picker dialog
         filename = filedialog.askopenfilename(
             title="Select an image",
@@ -276,7 +246,7 @@ class ImageProcessingApp:
                 messagebox.showerror("Error", f"Failed to open image:\n{str(e)}")
                 
     def saveImage(self):
-        """Save the current image to its original file."""
+        #Save the current image to its original file.
         # Make sure there's an image to save
         if self._current_image is None:
             messagebox.showwarning("No Image", "No image to save!")
@@ -295,7 +265,7 @@ class ImageProcessingApp:
             self.saveImageAs()
             
     def saveImageAs(self):
-        """Save the current image with a new filename."""
+        #Save the current image with a new filename.
         # Make sure there's an image to save
         if self._current_image is None:
             messagebox.showwarning("No Image", "No image to save!")
@@ -329,12 +299,7 @@ class ImageProcessingApp:
             self.master.quit()
             
     def displayImage(self, image):
-        """
-        Show an image on the canvas.
-        
-        Args:
-            image: The image to display (in OpenCV BGR format)
-        """
+
         if image is None:
             return
             
@@ -389,15 +354,7 @@ class ImageProcessingApp:
             messagebox.showerror("Error", f"Failed to apply grayscale:\n{str(e)}")
             
     def applyBlur(self, value=None):
-        """
-        Apply blur to the image based on the slider position.
-        
-        FIXED VERSION: This now works from the original image so you can
-        increase or decrease blur freely without it getting stuck.
-        
-        Args:
-            value: The slider value (Tkinter passes this automatically)
-        """
+   
         # Don't do anything if no image is loaded
         if self._current_image is None:
             return
@@ -440,7 +397,7 @@ class ImageProcessingApp:
             messagebox.showerror("Error", f"Failed to apply blur:\n{str(e)}")
             
     def applyEdgeDetection(self):
-        """Find and highlight the edges in the image."""
+        #Find and highlight the edges in the image.
         # Make sure we have an image first
         if self._current_image is None:
             messagebox.showwarning("No Image", "Please load an image first!")
@@ -454,12 +411,7 @@ class ImageProcessingApp:
             messagebox.showerror("Error", f"Failed to apply edge detection:\n{str(e)}")
             
     def adjustBrightness(self, value=None):
-        """
-        Make the image lighter or darker based on the slider.
-        
-        Args:
-            value: The slider value (Tkinter passes this automatically)
-        """
+    
         # Don't do anything if no image is loaded
         if self._current_image is None:
             return
@@ -495,12 +447,7 @@ class ImageProcessingApp:
             messagebox.showerror("Error", f"Failed to adjust brightness:\n{str(e)}")
             
     def adjustContrast(self, value=None):
-        """
-        Adjust the difference between light and dark areas.
-        
-        Args:
-            value: The slider value (Tkinter passes this automatically)
-        """
+  
         # Don't do anything if no image is loaded
         if self._current_image is None:
             return
@@ -541,12 +488,7 @@ class ImageProcessingApp:
         self.contrastScale.set(0)
         
     def rotateImage(self, angle):
-        """
-        Rotate the image by 90, 180, or 270 degrees.
-        
-        Args:
-            angle: How many degrees to rotate (90, 180, or 270)
-        """
+
         # Make sure we have an image first
         if self._current_image is None:
             messagebox.showwarning("No Image", "Please load an image first!")
@@ -560,12 +502,7 @@ class ImageProcessingApp:
             messagebox.showerror("Error", f"Failed to rotate image:\n{str(e)}")
             
     def flipImage(self, direction):
-        """
-        Flip the image like a mirror.
-        
-        Args:
-            direction: Either 'horizontal' (left-right) or 'vertical' (top-bottom)
-        """
+  
         # Make sure we have an image first
         if self._current_image is None:
             messagebox.showwarning("No Image", "Please load an image first!")
@@ -602,7 +539,7 @@ class ImageProcessingApp:
             messagebox.showerror("Error", f"Failed to resize image:\n{str(e)}")
             
     def undo(self):
-        """Go back to the previous version of the image."""
+        #Go back to the previous version of the image.
         # Try to get the previous state from history
         previous = self.history.undo()
         
@@ -622,7 +559,7 @@ class ImageProcessingApp:
             self.updateStatus("Nothing to undo")
             
     def redo(self):
-        """Go forward to the next version of the image (if you undid something)."""
+    
         # Try to get the next state from history
         next_state = self.history.redo()
         
@@ -665,14 +602,7 @@ class ImageProcessingApp:
             self.updateStatus("Image reset to original state")
             
     def updateImage(self, processed_image, status_message):
-        """
-        Update the image and add it to history.
-        This is used for permanent changes (buttons), not slider movements.
-        
-        Args:
-            processed_image: The new version of the image
-            status_message: What to show in the status bar
-        """
+ 
         # Save the new image
         self._current_image = processed_image
         self._original_image = processed_image.copy()
